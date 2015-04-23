@@ -8,13 +8,24 @@ namespace abc_bank
 {
     public class DateProvider
     {
-        private static DateProvider instance = null;
 
-        public static DateProvider getInstance()
+        private static readonly DateProvider instance = new DateProvider();
+
+
+        static DateProvider()
         {
-            if (instance == null)
-                instance = new DateProvider();
-            return instance;
+        }
+
+        private DateProvider()
+        {
+        }
+
+        public static DateProvider Instance
+        {
+            get
+            {
+                return instance;
+            }
         }
 
         public DateTime Now()
