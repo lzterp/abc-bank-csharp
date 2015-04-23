@@ -12,3 +12,5 @@ C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-bank.pdb
 C:\GitHub\abc-bank-csharp\abc-bank-tests\obj\Debug\abc-bank-tests.csprojResolveAssemblyReference.cache
 C:\GitHub\abc-bank-csharp\abc-bank-tests\obj\Debug\abc-bank-tests.dll
 C:\GitHub\abc-bank-csharp\abc-bank-tests\obj\Debug\abc-bank-tests.pdb
+C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-bank.Accounts.Common.dll
+C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-bank.Accounts.Common.pdb

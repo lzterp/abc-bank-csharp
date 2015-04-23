@@ -8,3 +8,5 @@ C:\GitHub\abc-bank-csharp\abc-bank\bin\Debug\abc-bank.pdb
 C:\GitHub\abc-bank-csharp\abc-bank\obj\Debug\abc-bank.csprojResolveAssemblyReference.cache
 C:\GitHub\abc-bank-csharp\abc-bank\obj\Debug\abc-bank.dll
 C:\GitHub\abc-bank-csharp\abc-bank\obj\Debug\abc-bank.pdb
+C:\GitHub\abc-bank-csharp\abc-bank\bin\Debug\abc-bank.Accounts.Common.dll
+C:\GitHub\abc-bank-csharp\abc-bank\bin\Debug\abc-bank.Accounts.Common.pdb

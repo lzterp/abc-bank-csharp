@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using abc_bank.Accounts.Common.Providers;
 
 namespace abc_bank
 {
@@ -23,7 +24,7 @@ namespace abc_bank
         public Transaction(double amount) 
         {
             this.amount = amount;
-            this.transactionDate = DateProvider.getInstance().Now();
+            this.transactionDate = DateProvider.Instance.Now();
         }
     }
 }
