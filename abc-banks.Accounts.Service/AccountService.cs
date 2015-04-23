@@ -7,6 +7,7 @@ using abc_bank.Accounts.IService;
 using abc_bank.Accounts.IService.Model;
 using abc_bank.Accounts.Common.Constants;
 using abc_bank.Accounts.Common.Models;
+using abc_bank.Accounts.Service.Model;
 
 namespace abc_bank.Accounts.Service
 {
@@ -20,11 +21,14 @@ namespace abc_bank.Accounts.Service
             switch (acctype)
             {
                 case AccountType.CHECKING:
-
-                case MAXI_SAVINGS:
-
-                default:
-                 
+                    retacct = new CheckingAccount();
+                    break;
+                case AccountType.MAXI_SAVINGS:
+                    retacct = new MaxiAccount();
+                    break;
+                case AccountType.SAVINGS:
+                    retacct = new SavingsAccount();
+                    break;
             }
 
             return retacct;
