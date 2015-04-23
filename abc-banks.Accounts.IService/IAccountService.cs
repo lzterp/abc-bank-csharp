@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using abc_banks.Accounts.IService.Model;
+using abc_bank.Accounts.IService.Model;
 
-namespace abc_banks.Accounts.IService
+namespace abc_bank.Accounts.IService
 {
     public interface IAccountService
     {

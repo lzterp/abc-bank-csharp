@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abc_banks.Accounts.IService.Model
+namespace abc_bank.Accounts.IService.Model
 {
     public interface IAccount
     {
