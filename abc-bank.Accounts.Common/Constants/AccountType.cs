@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace abc_bank.Accounts.IService.Constants
+namespace abc_bank.Accounts.Common.Constants
 {
     public enum AccountType
     {
