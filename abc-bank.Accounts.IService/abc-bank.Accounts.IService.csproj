@@ -50,7 +50,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Constants\AccountType.cs" />
     <Compile Include="IAccountService.cs" />
     <Compile Include="Model\IAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
