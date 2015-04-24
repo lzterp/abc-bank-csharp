@@ -64,11 +64,11 @@ namespace abc_bank.Accounts.Service
         //Now total up all the transactions
         double total = 0.0;
             foreach (Transaction t in a.GetTransactions()) {
-                s += "  " + (t.amount< 0 ? "withdrawal" : "deposit") + " " + DollarConversion.ToDollars(t.amount) + "\n";
+                sb.AppendLine("  ").Append(t.amount< 0 ? "withdrawal" : "deposit").Append(" ").Append(DollarConversion.ToDollars(t.amount));
                 total += t.amount;
             }
-    s += "Total " + ToDollars(total);
-            return s;
+    sb.Append("Total ").Append(DollarConversion.ToDollars(total));
+            return sb.ToString();
         }
         
     }
