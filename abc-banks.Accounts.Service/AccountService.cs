@@ -8,18 +8,18 @@ using abc_bank.Accounts.IService.Model;
 using abc_bank.Accounts.Common.Constants;
 using abc_bank.Accounts.Common.Models;
 using abc_bank.Accounts.Service.Model;
+using abc_bank.Accounts.Common.Helpers;
 
 namespace abc_bank.Accounts.Service
 {
     public class AccountService : IAccountService
     {
 
-        public IAccount CreateAccount(int AccountTypeid)
+        public IAccount CreateAccount(AccountType accountTypeid)
         {
             IAccount retacct = null;
 
-            AccountType acctype = (AccountType)AccountTypeid;
-            switch (acctype)
+            switch (accountTypeid)
             {
                 case AccountType.CHECKING:
                     retacct = new CheckingAccount();
@@ -58,13 +58,13 @@ namespace abc_bank.Accounts.Service
         public String StatementForAccount(IAccount a)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine()
+            sb.AppendLine(a.Description());
 
 
         //Now total up all the transactions
         double total = 0.0;
-            foreach (Transaction t in a.transactions) {
-                s += "  " + (t.amount< 0 ? "withdrawal" : "deposit") + " " + ToDollars(t.amount) + "\n";
+            foreach (Transaction t in a.GetTransactions()) {
+                s += "  " + (t.amount< 0 ? "withdrawal" : "deposit") + " " + DollarConversion.ToDollars(t.amount) + "\n";
                 total += t.amount;
             }
     s += "Total " + ToDollars(total);

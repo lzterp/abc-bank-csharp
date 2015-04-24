@@ -14,6 +14,19 @@ namespace abc_bank.Accounts.Service.Model
 
         }
 
+        string IAccount.Description()
+        {
+            return this.Description;
+        }
 
+        Guid IAccount.ID()
+        {
+            return this.ID;
+        }
+
+        public List<Transaction> GetTransactions()
+        {
+            return transactions;
+        }
     }
 }

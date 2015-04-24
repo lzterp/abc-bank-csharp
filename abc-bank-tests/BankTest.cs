@@ -1,6 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using abc_bank;
+using abc_bank.Accounts.IService.Model;
+using abc_bank.Accounts.IService;
+using abc_bank.Accounts.Service;
+using abc_bank.Accounts.Service.Model;
+using abc_bank.Accounts.Common;
+using abc_bank.Accounts.Common.Constants;
 
 namespace abc_bank_tests
 {
@@ -9,13 +15,12 @@ namespace abc_bank_tests
     {
 
         private static readonly double DOUBLE_DELTA = 1e-15;
-        
+        private IAccountService _accountservice;
 
 
         public BankTest()
         {
-
-
+            _accountservice = new AccountService();
         } 
 
 
@@ -24,7 +29,7 @@ namespace abc_bank_tests
         {
             Bank bank = new Bank();
             Customer john = new Customer("John");
-            john.OpenAccount(new Account(Account.CHECKING));
+            john.OpenAccount(AccountType.CHECKING);
             bank.AddCustomer(john);
 
             Assert.AreEqual("Customer Summary\n - John (1 account)", bank.CustomerSummary());

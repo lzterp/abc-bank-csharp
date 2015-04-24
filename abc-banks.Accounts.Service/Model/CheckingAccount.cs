@@ -14,9 +14,19 @@ namespace abc_bank.Accounts.Service.Model
 
         }
 
-        public void Deposit(double amount)
+        string IAccount.Description()
         {
-            throw new NotImplementedException();
+            return this.Description;
+        }
+
+        Guid IAccount.ID()
+        {
+            return this.ID;
+        }
+
+        public List<Transaction> GetTransactions()
+        {
+            return transactions;
         }
 
     }

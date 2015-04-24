@@ -9,13 +9,18 @@ namespace abc_bank.Accounts.Service.Model
 {
     public class BaseAccount
     {
-        private string Description { get; set; }
+        private readonly Guid accountid;
 
         protected List<Transaction> transactions;
+
+        public string Description { get; set; }
+
+        public Guid ID { get { return accountid; } }
 
         public BaseAccount(string description)
         {
             Description = description;
+            accountid = new Guid();
         }
     }
 }

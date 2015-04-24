@@ -43,6 +43,12 @@
     <Compile Include="Model\IAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\abc-bank.Accounts.Common\abc-bank.Accounts.Common.csproj">
+      <Project>{ac3bc7a4-dc8a-4b49-99c2-2782cb8b729d}</Project>
+      <Name>abc-bank.Accounts.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

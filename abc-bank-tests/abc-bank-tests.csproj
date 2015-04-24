@@ -56,6 +56,18 @@
     <Compile Include="TransactionTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abc-bank.Accounts.Common\abc-bank.Accounts.Common.csproj">
+      <Project>{ac3bc7a4-dc8a-4b49-99c2-2782cb8b729d}</Project>
+      <Name>abc-bank.Accounts.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abc-banks.Accounts.IService\abc-bank.Accounts.IService.csproj">
+      <Project>{c914f363-943b-47c3-9936-3e045478fbaf}</Project>
+      <Name>abc-bank.Accounts.IService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\abc-banks.Accounts.Service\abc-bank.Accounts.Service.csproj">
+      <Project>{1b8c4152-bb6d-4d08-bb8b-96d66adc96d4}</Project>
+      <Name>abc-bank.Accounts.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\abc-bank\abc-bank.csproj">
       <Project>{c8a5871b-eefa-49eb-84a0-5b021d13e233}</Project>
       <Name>abc-bank</Name>

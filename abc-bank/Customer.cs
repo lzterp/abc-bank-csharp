@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using abc_bank.Accounts.IService.Model;
 using abc_bank.Accounts.IService;
 using abc_bank.Accounts.Service;
+using abc_bank.Accounts.Common.Constants;
 
 namespace abc_bank
 {
@@ -28,9 +29,9 @@ namespace abc_bank
             return name;
         }
 
-        public Customer OpenAccount(int AccountTypeId)
+        public Customer OpenAccount(AccountType accountTypeId)
         {
-            accounts.Add(_accountservice.CreateAccount(AccountTypeId));
+            accounts.Add(_accountservice.CreateAccount(accountTypeId));
             return this;
         }
 
@@ -59,11 +60,6 @@ namespace abc_bank
             }
             statement += "\nTotal In All Accounts " + ToDollars(total);
             return statement;
-        }
-
-        private String ToDollars(double d)
-        {
-            return String.Format("$%,.2f", Math.Abs(d));
         }
     }
 }

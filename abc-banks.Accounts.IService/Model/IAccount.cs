@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using abc_bank.Accounts.Common.Models;
 
 namespace abc_bank.Accounts.IService.Model
 {
     public interface IAccount
     {
-        void Deposit(double amount);
+        Guid ID();
 
-        void Withdraw(double amount);
+        string Description();
 
-        double InterestEarned();
-
-        double sumTransactions();
+        List<Transaction> GetTransactions();
     }
 }
