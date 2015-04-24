@@ -9,6 +9,13 @@ namespace abc_bank.Accounts.Service.Model
 {
     public class BaseAccount
     {
+        private string Description { get; set; }
+
         protected List<Transaction> transactions;
+
+        public BaseAccount(string description)
+        {
+            Description = description;
+        }
     }
 }

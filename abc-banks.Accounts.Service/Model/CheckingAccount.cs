@@ -9,24 +9,15 @@ namespace abc_bank.Accounts.Service.Model
 {
     public class CheckingAccount :BaseAccount, IAccount 
     {
+        public CheckingAccount() : base("Checking Account")
+        {
+
+        }
+
         public void Deposit(double amount)
         {
             throw new NotImplementedException();
         }
 
-        public double InterestEarned()
-        {
-            throw new NotImplementedException();
-        }
-
-        public double sumTransactions()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Withdraw(double amount)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

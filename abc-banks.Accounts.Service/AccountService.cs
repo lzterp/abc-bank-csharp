@@ -13,6 +13,7 @@ namespace abc_bank.Accounts.Service
 {
     public class AccountService : IAccountService
     {
+
         public IAccount CreateAccount(int AccountTypeid)
         {
             IAccount retacct = null;
@@ -33,6 +34,43 @@ namespace abc_bank.Accounts.Service
 
             return retacct;
         }
+
+        public void Deposit(double amount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double InterestEarned()
+        {
+            throw new NotImplementedException();
+        }
+
+        public double sumTransactions()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Withdraw(double amount)
+        {
+            throw new NotImplementedException();
+        }
+
+        public String StatementForAccount(IAccount a)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine()
+
+
+        //Now total up all the transactions
+        double total = 0.0;
+            foreach (Transaction t in a.transactions) {
+                s += "  " + (t.amount< 0 ? "withdrawal" : "deposit") + " " + ToDollars(t.amount) + "\n";
+                total += t.amount;
+            }
+    s += "Total " + ToDollars(total);
+            return s;
+        }
+        
     }
 
 }

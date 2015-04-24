@@ -9,6 +9,15 @@ namespace abc_bank_tests
     {
 
         private static readonly double DOUBLE_DELTA = 1e-15;
+        
+
+
+        public BankTest()
+        {
+
+
+        } 
+
 
         [TestMethod]
         public void CustomerSummary() 

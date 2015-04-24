@@ -11,5 +11,15 @@ namespace abc_bank.Accounts.IService
     {
         IAccount CreateAccount(int AccountTypeid);
 
+        String StatementForAccount(IAccount a);
+
+        void Deposit(double amount);
+
+
+        double InterestEarned();
+
+        double sumTransactions();
+
+        void Withdraw(double amount);
     }
 }

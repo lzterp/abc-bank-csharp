@@ -9,24 +9,11 @@ namespace abc_bank.Accounts.Service.Model
 {
     public class MaxiAccount : BaseAccount, IAccount
     {
-        public void Deposit(double amount)
+        public MaxiAccount() : base("Maxi Savings Account")
         {
-            throw new NotImplementedException();
+
         }
 
-        public double InterestEarned()
-        {
-            throw new NotImplementedException();
-        }
 
-        public double sumTransactions()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Withdraw(double amount)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
