@@ -7,6 +7,7 @@ using abc_bank.Accounts.IService.Model;
 using abc_bank.Accounts.IService;
 using abc_bank.Accounts.Service;
 using abc_bank.Accounts.Common.Constants;
+using abc_bank.Accounts.Common.Helpers;
 
 namespace abc_bank
 {
@@ -16,12 +17,12 @@ namespace abc_bank
         private List<IAccount> accounts;
         private IAccountService _accountservice;
 
-        public Customer(String name)
+        public Customer(String name, IAccountService accountservice)
         {
             this.name = name;
             this.accounts = new List<IAccount>();
 
-            _accountservice = new AccountService();
+            _accountservice = accountservice;
         }
 
         public String GetName()
@@ -29,10 +30,11 @@ namespace abc_bank
             return name;
         }
 
-        public Customer OpenAccount(AccountType accountTypeId)
+        public IAccount OpenAccount(AccountType accountTypeId)
         {
+            var newacct = _accountservice.CreateAccount(accountTypeId);
             accounts.Add(_accountservice.CreateAccount(accountTypeId));
-            return this;
+            return newacct;
         }
 
         public int GetNumberOfAccounts()
@@ -44,7 +46,7 @@ namespace abc_bank
         {
             double total = 0;
             foreach (IAccount a in accounts)
-                total += a.InterestEarned();
+                total += _accountservice.InterestEarned(a);
             return total;
         }
 
@@ -55,10 +57,10 @@ namespace abc_bank
             double total = 0.0;
             foreach (IAccount a in accounts) 
             {
-                statement += "\n" + statementForAccount(a) + "\n";
-                total += a.sumTransactions();
+                statement += "\n" + _accountservice.StatementForAccount(a) + "\n";
+                total += _accountservice.sumTransactions(a);
             }
-            statement += "\nTotal In All Accounts " + ToDollars(total);
+            statement += "\nTotal In All Accounts " + DollarConversion.ToDollars(total);
             return statement;
         }
     }

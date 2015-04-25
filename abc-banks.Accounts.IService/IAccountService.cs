@@ -14,13 +14,13 @@ namespace abc_bank.Accounts.IService
 
         String StatementForAccount(IAccount a);
 
-        void Deposit(double amount);
+        void Deposit(IAccount a, double amount);
 
 
-        double InterestEarned();
+        double InterestEarned(IAccount a);
 
-        double sumTransactions();
+        double sumTransactions(IAccount a);
 
-        void Withdraw(double amount);
+        void Withdraw(IAccount a, double amount);
     }
 }

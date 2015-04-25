@@ -35,24 +35,38 @@ namespace abc_bank.Accounts.Service
             return retacct;
         }
 
-        public void Deposit(double amount)
+        public void Deposit(IAccount a, double amount)
         {
-            throw new NotImplementedException();
+            if (amount > 0)
+            {
+                a.AddTransaction(new Transaction(amount));
+            }
+            else throw new Exception("amount must be positive");
         }
 
-        public double InterestEarned()
+        public double InterestEarned(IAccount a)
         {
-            throw new NotImplementedException();
+            return 
         }
 
-        public double sumTransactions()
+        public double sumTransactions(IAccount a)
         {
-            throw new NotImplementedException();
+           var alltransaction = a.GetTransactions();
+            if (alltransaction != null & alltransaction.Any())
+            {
+                return alltransaction.Sum(x => x.amount);
+            }
+            else return 0;
+      
         }
 
-        public void Withdraw(double amount)
+        public void Withdraw(IAccount a, double amount)
         {
-            throw new NotImplementedException();
+            if (amount > 0)
+            {
+                a.AddTransaction(new Transaction(-amount));
+            }
+            else throw new Exception("amount must be positive");
         }
 
         public String StatementForAccount(IAccount a)
