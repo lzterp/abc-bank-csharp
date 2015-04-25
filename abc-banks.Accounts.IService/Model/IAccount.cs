@@ -14,5 +14,9 @@ namespace abc_bank.Accounts.IService.Model
         string Description();
 
         List<Transaction> GetTransactions();
+
+        double AddTransaction(Transaction newtranaction);
+
+        double GetInterests();
     }
 }
