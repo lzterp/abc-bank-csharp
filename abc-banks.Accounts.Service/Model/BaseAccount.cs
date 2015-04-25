@@ -9,7 +9,11 @@ namespace abc_bank.Accounts.Service.Model
 {
     public class BaseAccount
     {
-        private readonly Guid accountid;
+        protected readonly Guid accountid;
+
+        protected double TotalTransactionAmount { get; set; }
+
+        protected double InterestEarned { get; set; }
 
         protected List<Transaction> transactions;
 
@@ -21,6 +25,8 @@ namespace abc_bank.Accounts.Service.Model
         {
             Description = description;
             accountid = new Guid();
+            InterestEarned = 0;
+            TotalTransactionAmount = 0;
         }
     }
 }
