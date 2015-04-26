@@ -46,7 +46,7 @@ namespace abc_bank.Accounts.Service
 
         public double InterestEarned(IAccount a)
         {
-            return 
+          
         }
 
         public double sumTransactions(IAccount a)

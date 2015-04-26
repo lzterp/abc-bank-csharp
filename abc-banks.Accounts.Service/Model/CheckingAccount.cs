@@ -5,16 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using abc_bank.Accounts.Common.Models;
 using abc_bank.Accounts.IService.Model;
+using abc_bank.Accounts.Common.Providers;
+using abc_bank.Accounts.Common.Helpers;
 
 namespace abc_bank.Accounts.Service.Model
 {
     public class CheckingAccount :BaseAccount, IAccount 
     {
-        private static double FixedInterestRate = 0.001;
+        private List<InterestRule> interestRules;
 
         public CheckingAccount() : base("Checking Account")
         {
-
+            interestRules = RatesProvider.Instance.GetRates(Common.Constants.AccountType.CHECKING);
         }
 
         string IAccount.Description()
@@ -34,14 +36,7 @@ namespace abc_bank.Accounts.Service.Model
 
         public double AddTransaction(Transaction newtranaction)
         {
-            DateTime newDate = Convert.ToDateTime(newtranaction.TransactionDate).Date;
-            DateTime LastTransactionDate = transactions.Max(x => x.TransactionDate).Date;
-            double TotalAmount = TotalTransactionAmount + InterestEarned;
-
-            TimeSpan age = newDate.Subtract(LastTransactionDate);
-            Int32 diff = Convert.ToInt32(age.TotalDays);
-
-            InterestEarned += TotalAmount * (Math.Pow((1 + FixedInterestRate/365), diff) - 1);
+            InterestEarned += InterestCalculator.CalculateInterest(interestRules, TotalTransactionAmount, transactions);
             TotalTransactionAmount += newtranaction.amount;
 
             transactions.Add(newtranaction);
