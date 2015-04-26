@@ -42,5 +42,10 @@ namespace abc_bank.Accounts.Service.Model
             transactions.Add(newtranaction);
             return TotalTransactionAmount + InterestEarned;
         }
+
+        public double GetInterests()
+        {
+            return InterestEarned;
+        }
     }
 }
