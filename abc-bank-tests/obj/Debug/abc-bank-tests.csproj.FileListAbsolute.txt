@@ -14,3 +14,9 @@ C:\GitHub\abc-bank-csharp\abc-bank-tests\obj\Debug\abc-bank-tests.dll
 C:\GitHub\abc-bank-csharp\abc-bank-tests\obj\Debug\abc-bank-tests.pdb
 C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-bank.Accounts.Common.dll
 C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-bank.Accounts.Common.pdb
+C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-bank-tests.Mocks.dll
+C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-banks.Accounts.IService.dll
+C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-banks.Accounts.Service.dll
+C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-bank-tests.Mocks.pdb
+C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-banks.Accounts.IService.pdb
+C:\GitHub\abc-bank-csharp\abc-bank-tests\bin\Debug\abc-banks.Accounts.Service.pdb

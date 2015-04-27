@@ -63,5 +63,10 @@ namespace abc_bank
             statement += "\nTotal In All Accounts " + DollarConversion.ToDollars(total);
             return statement;
         }
+
+        public List<IAccount> AllAccounts()
+        {
+            return accounts;
+        }
     }
 }
