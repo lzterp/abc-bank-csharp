@@ -16,42 +16,67 @@ namespace abc_bank_tests
     [TestClass]
     public class AccountServiceTest
     {
+        private static readonly double DOUBLE_DELTA = 1e-15;
+        private MockDateProvider _dateProvider;
 
-        private IDateProvider _dateProvider;
+        private IAccountService _accountService;
 
-        private IAccountService GetAccountService()
-        {
-            return new AccountService();
-        }
 
         public AccountServiceTest()
         {
             _dateProvider = new MockDateProvider();
+            _accountService = new AccountService((IDateProvider)_dateProvider);
 
         }
 
         [TestMethod]
         public void CheckingAccount()
         {
-            var checkingaccount = GetAccountService().CreateAccount(AccountType.CHECKING);
+
+            var checkingaccount = _accountService.CreateAccount(AccountType.CHECKING);
+
+            _dateProvider.SetMockNow(DateTime.Now.AddDays(-10));
+            _accountService.Deposit(checkingaccount, 1000);
+
+            _dateProvider.SetMockNow(DateTime.Now);
+            _accountService.Withdraw(checkingaccount, 1000);
+
+            Assert.AreEqual(1000 * (Math.Pow(1 + 0.001, 10) - 1), checkingaccount.GetInterests(), DOUBLE_DELTA);
 
             Assert.AreEqual("Checking Account", checkingaccount.Description());
         }
 
         [TestMethod]
-        public void OSavings_account()
+        public void Savings_account()
         {
-            var checkingaccount = GetAccountService().CreateAccount(AccountType.SAVINGS);
+            var savingaccount = _accountService.CreateAccount(AccountType.SAVINGS);
 
-            Assert.AreEqual("Savings Account", checkingaccount.Description());
+            _dateProvider.SetMockNow(DateTime.Now.AddDays(-10));
+            _accountService.Deposit(savingaccount, 2000);
+
+            _dateProvider.SetMockNow(DateTime.Now);
+            _accountService.Withdraw(savingaccount, 2000);
+
+            Assert.AreEqual(1000 * (Math.Pow(1 + 0.001, 10) - 1) + 1000 * (Math.Pow(1 + 0.002, 10) - 1), savingaccount.GetInterests(), DOUBLE_DELTA);
+
+            Assert.AreEqual("Savings Account", savingaccount.Description());
         }
 
         [TestMethod]
         public void Maxi_savings_account()
         {
-            var checkingaccount = GetAccountService().CreateAccount(AccountType.MAXI_SAVINGS);
+            var maxiaccount = _accountService.CreateAccount(AccountType.MAXI_SAVINGS);
 
-            Assert.AreEqual("Maxi Savings Account", checkingaccount.Description());
+            _dateProvider.SetMockNow(DateTime.Now.AddDays(-20));
+            _accountService.Deposit(maxiaccount, 2000);
+            _accountService.Withdraw(maxiaccount, 1000);
+
+            _dateProvider.SetMockNow(DateTime.Now);
+            _accountService.Withdraw(maxiaccount, 1000);
+
+            Assert.AreEqual((1000 * (Math.Pow(1 + 0.001, 10) - 1) + 1000) * (Math.Pow(1 + 0.05, 10) - 1) + 1000 * (Math.Pow(1 + 0.001, 10) - 1), maxiaccount.GetInterests(), DOUBLE_DELTA);
+
+            Assert.AreEqual("Maxi Savings Account", maxiaccount.Description());
         }
     }
 }
