@@ -57,3 +57,5 @@ Temporary Items
 /abc-banks.Accounts.IService/bin/Debug
 /abc-banks.Accounts.Service/bin/Debug
 /abc-banks.Accounts.Service/obj/Debug
+/abc-bank-tests/bin/Debug
+/abc-bank-tests/obj/Debug
