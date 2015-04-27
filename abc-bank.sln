@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abc-bank.Accounts.IService"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abc-bank.Accounts.Service", "abc-banks.Accounts.Service\abc-bank.Accounts.Service.csproj", "{1B8C4152-BB6D-4D08-BB8B-96D66ADC96D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "abc-bank-tests.Mocks", "abc-bank-tests.Mocks\abc-bank-tests.Mocks.csproj", "{AF1EA83E-E1E6-4497-A4C5-AA369FCD05B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1B8C4152-BB6D-4D08-BB8B-96D66ADC96D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B8C4152-BB6D-4D08-BB8B-96D66ADC96D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B8C4152-BB6D-4D08-BB8B-96D66ADC96D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1EA83E-E1E6-4497-A4C5-AA369FCD05B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1EA83E-E1E6-4497-A4C5-AA369FCD05B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1EA83E-E1E6-4497-A4C5-AA369FCD05B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1EA83E-E1E6-4497-A4C5-AA369FCD05B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

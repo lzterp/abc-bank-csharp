@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using abc_bank.Accounts.Common.IProviders;
 
 namespace abc_bank.Accounts.Common.Providers
 {
-    public class DateProvider
+    public class DateProvider : IDateProvider
     {
 
         private static readonly DateProvider instance = new DateProvider();
@@ -20,7 +21,7 @@ namespace abc_bank.Accounts.Common.Providers
         {
         }
 
-        public static DateProvider Instance
+        public static IDateProvider Instance
         {
             get
             {

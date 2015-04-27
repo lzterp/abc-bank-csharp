@@ -50,12 +50,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AccountServiceTest.cs" />
     <Compile Include="BankTest.cs" />
     <Compile Include="CustomerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\abc-bank-tests.Mocks\abc-bank-tests.Mocks.csproj">
+      <Project>{af1ea83e-e1e6-4497-a4c5-aa369fcd05b4}</Project>
+      <Name>abc-bank-tests.Mocks</Name>
+    </ProjectReference>
     <ProjectReference Include="..\abc-bank.Accounts.Common\abc-bank.Accounts.Common.csproj">
       <Project>{ac3bc7a4-dc8a-4b49-99c2-2782cb8b729d}</Project>
       <Name>abc-bank.Accounts.Common</Name>

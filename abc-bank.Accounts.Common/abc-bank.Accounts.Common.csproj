@@ -43,6 +43,7 @@
     <Compile Include="Constants\RuleType.cs" />
     <Compile Include="Helpers\DayDiffCalculator.cs" />
     <Compile Include="Helpers\DollarConversion.cs" />
+    <Compile Include="IProviders\IDateProvider.cs" />
     <Compile Include="Models\InterestRule.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="Helpers\InterestCalculator.cs" />
     <Compile Include="Providers\RatesProvider.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

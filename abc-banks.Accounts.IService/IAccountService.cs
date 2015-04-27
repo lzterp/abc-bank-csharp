@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using abc_bank.Accounts.IService.Model;
 using abc_bank.Accounts.Common.Constants;
+using abc_bank.Accounts.Common.IProviders;
 
 namespace abc_bank.Accounts.IService
 {

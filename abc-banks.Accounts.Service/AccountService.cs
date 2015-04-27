@@ -9,11 +9,18 @@ using abc_bank.Accounts.Common.Constants;
 using abc_bank.Accounts.Common.Models;
 using abc_bank.Accounts.Service.Model;
 using abc_bank.Accounts.Common.Helpers;
+using abc_bank.Accounts.Common.IProviders;
 
 namespace abc_bank.Accounts.Service
 {
     public class AccountService : IAccountService
     {
+        private IDateProvider _dateProvider;
+
+        public AccountService(IDateProvider dateProvider)
+        {
+            _dateProvider = dateProvider;
+        }
 
         public IAccount CreateAccount(AccountType accountTypeid)
         {
@@ -39,7 +46,7 @@ namespace abc_bank.Accounts.Service
         {
             if (amount > 0)
             {
-                a.AddTransaction(new Transaction(amount));
+                a.AddTransaction(new Transaction(_dateProvider, amount));
             }
             else throw new Exception("amount must be positive");
         }
@@ -64,7 +71,7 @@ namespace abc_bank.Accounts.Service
         {
             if (amount > 0)
             {
-                a.AddTransaction(new Transaction(-amount));
+                a.AddTransaction(new Transaction(_dateProvider ,- amount));
             }
             else throw new Exception("amount must be positive");
         }
