@@ -32,9 +32,9 @@ namespace abc_bank_tests
             IAccount checkingAccount = henry.OpenAccount(AccountType.CHECKING);
             IAccount savingsAccount = henry.OpenAccount(AccountType.SAVINGS);
 
-            _accountService.Deposit(checkingAccount, 100.00);
-            _accountService.Deposit(savingsAccount,4000.0);
-            _accountService.Withdraw(savingsAccount,200.0);
+            henry.Deposit(checkingAccount.ID(), 100.00);
+            henry.Deposit(savingsAccount.ID(),4000.0);
+            henry.Withdraw(savingsAccount.ID(),200.0);
 
             Assert.AreEqual("Statement for Henry\n" +
                     "\n" +

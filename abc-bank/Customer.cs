@@ -14,13 +14,13 @@ namespace abc_bank
     public class Customer
     {
         private String name;
-        private List<IAccount> accounts;
+        private List<IAccount> _accounts;
         private IAccountService _accountservice;
 
         public Customer(String name, IAccountService accountservice)
         {
             this.name = name;
-            this.accounts = new List<IAccount>();
+            this._accounts = new List<IAccount>();
 
             _accountservice = accountservice;
         }
@@ -33,19 +33,19 @@ namespace abc_bank
         public IAccount OpenAccount(AccountType accountTypeId)
         {
             var newacct = _accountservice.CreateAccount(accountTypeId);
-            accounts.Add(_accountservice.CreateAccount(accountTypeId));
+            _accounts.Add(_accountservice.CreateAccount(accountTypeId));
             return newacct;
         }
 
         public int GetNumberOfAccounts()
         {
-            return accounts.Count;
+            return _accounts.Count;
         }
 
         public double TotalInterestEarned() 
         {
             double total = 0;
-            foreach (IAccount a in accounts)
+            foreach (IAccount a in _accounts)
                 total += _accountservice.InterestEarned(a);
             return total;
         }
@@ -55,7 +55,7 @@ namespace abc_bank
             String statement = null;
             statement = "Statement for " + name + "\n";
             double total = 0.0;
-            foreach (IAccount a in accounts) 
+            foreach (IAccount a in _accounts) 
             {
                 statement += "\n" + _accountservice.StatementForAccount(a) + "\n";
                 total += _accountservice.sumTransactions(a);
@@ -66,7 +66,25 @@ namespace abc_bank
 
         public List<IAccount> AllAccounts()
         {
-            return accounts;
+            return _accounts;
+        }
+
+        public bool Withdraw(Guid ID, double amount)
+        {
+            var foundaccount = _accounts.Where(x => x.ID() == ID).FirstOrDefault();
+            _accounts.Remove(foundaccount);
+            _accountservice.Withdraw(foundaccount, amount);
+            _accounts.Add(foundaccount);
+            return true;
+        }
+
+        public bool Deposit(Guid ID, double amount)
+        {
+            var foundaccount = _accounts.Where(x => x.ID() == ID).FirstOrDefault();
+            _accounts.Remove(foundaccount);
+            _accountservice.Deposit(foundaccount, amount);
+            _accounts.Add(foundaccount);
+            return true;
         }
     }
 }
