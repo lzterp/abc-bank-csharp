@@ -27,6 +27,7 @@ namespace abc_bank.Accounts.Service.Model
             accountid = new Guid();
             InterestEarned = 0;
             TotalTransactionAmount = 0;
+            transactions = new List<Transaction>();
         }
     }
 }

@@ -69,7 +69,6 @@ namespace abc_bank_tests
         }
 
         [TestMethod]
-        [Ignore]
         public void TestMutilpleAccountWithSameType()
         {
             Customer oscar = new Customer("Oscar", _accountService);

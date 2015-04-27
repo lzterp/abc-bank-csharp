@@ -9,6 +9,7 @@ using abc_bank.Accounts.Common;
 using abc_bank.Accounts.Common.Constants;
 using abc_bank.Accounts.Common.IProviders;
 using abc_bank_tests.Mocks;
+using Telerik.JustMock;
 
 namespace abc_bank_tests
 {
@@ -23,7 +24,7 @@ namespace abc_bank_tests
         public BankTest()
         {
             _dateProvider = new MockDateProvider();
-            _accountService = new AccountService(_dateProvider);
+            _accountService = Mock.Create<IAccountService>();
         } 
 
 
@@ -31,6 +32,9 @@ namespace abc_bank_tests
         public void CustomerSummary() 
         {
             Bank bank = new Bank();
+
+            Mock.Arrange(() => _accountService.CreateAccount(AccountType.CHECKING)).Returns(new CheckingAccount());
+
             Customer john = new Customer("John", _accountService);
             john.OpenAccount(AccountType.CHECKING);
             bank.AddCustomer(john);

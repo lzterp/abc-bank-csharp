@@ -41,7 +41,7 @@ namespace abc_bank_tests
             _dateProvider.SetMockNow(DateTime.Now);
             _accountService.Withdraw(checkingaccount, 1000);
 
-            Assert.AreEqual(1000 * (Math.Pow(1 + 0.001, 10) - 1), checkingaccount.GetInterests(), DOUBLE_DELTA);
+            Assert.AreEqual(1000 * (Math.Pow(1 + 0.001/365, 10) - 1), checkingaccount.GetInterests(), DOUBLE_DELTA);
 
             Assert.AreEqual("Checking Account", checkingaccount.Description());
         }
@@ -57,7 +57,7 @@ namespace abc_bank_tests
             _dateProvider.SetMockNow(DateTime.Now);
             _accountService.Withdraw(savingaccount, 2000);
 
-            Assert.AreEqual(1000 * (Math.Pow(1 + 0.001, 10) - 1) + 1000 * (Math.Pow(1 + 0.002, 10) - 1), savingaccount.GetInterests(), DOUBLE_DELTA);
+            Assert.AreEqual(1000 * (Math.Pow(1 + 0.001/365, 10) - 1) + 1000 * (Math.Pow(1 + 0.002/365, 10) - 1), savingaccount.GetInterests(), DOUBLE_DELTA);
 
             Assert.AreEqual("Savings Account", savingaccount.Description());
         }
@@ -74,7 +74,7 @@ namespace abc_bank_tests
             _dateProvider.SetMockNow(DateTime.Now);
             _accountService.Withdraw(maxiaccount, 1000);
 
-            Assert.AreEqual((1000 * (Math.Pow(1 + 0.001, 10) - 1) + 1000) * (Math.Pow(1 + 0.05, 10) - 1) + 1000 * (Math.Pow(1 + 0.001, 10) - 1), maxiaccount.GetInterests(), DOUBLE_DELTA);
+            Assert.AreEqual((1000 * (Math.Pow(1 + 0.001/365, 10) - 1) + 1000) * (Math.Pow(1 + 0.05/365, 10) - 1) + 1000 * (Math.Pow(1 + 0.001/365, 10) - 1), maxiaccount.GetInterests(), DOUBLE_DELTA);
 
             Assert.AreEqual("Maxi Savings Account", maxiaccount.Description());
         }

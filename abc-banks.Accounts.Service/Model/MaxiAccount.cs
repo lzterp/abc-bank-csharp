@@ -36,7 +36,7 @@ namespace abc_bank.Accounts.Service.Model
 
         public double AddTransaction(Transaction newtranaction)
         {
-            InterestEarned += InterestCalculator.CalculateInterest(interestRules, TotalTransactionAmount, transactions);
+            InterestEarned += InterestCalculator.CalculateInterest(interestRules, TotalTransactionAmount, transactions, newtranaction.TransactionDate);
             TotalTransactionAmount += newtranaction.amount;
 
             transactions.Add(newtranaction);

@@ -10,7 +10,6 @@ namespace abc_bank.Accounts.Common.Models
     public class Transaction
     {
         public readonly double amount;
-        IDateProvider dateProvider;
 
         public DateTime TransactionDate
         {
